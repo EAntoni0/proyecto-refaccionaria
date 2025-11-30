@@ -5,10 +5,10 @@
         'href' => route('admin.dashboard'),
     ],
 
-    [
-        'name' => 'Profile', 
+    /*[
+        'name' => 'Panel Admin', 
         'href' => route('admin.dashboard'),
-    ],
+    ],*/
 
     
 ]">

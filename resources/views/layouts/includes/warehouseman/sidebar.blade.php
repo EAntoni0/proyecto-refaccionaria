@@ -5,18 +5,25 @@ $links = [
     [
         'name' => 'Dashboard',
         'icon' => 'fa-solid fa-gauge',
-        'href' => route('admin.dashboard'),
-        'active' => request()->routeIs('admin.dashboard'),
+        'href' => route('warehouseman.dashboard'),
+        'active' => request()->routeIs('warehouseman.dashboard'),
     ],
     [
-        'header' => 'Gestion',
+        'header' => 'Gestión de Almacén',
+    ],
+    [
+        'name' => 'Categorías',
+        'icon' => 'fa-solid fa-tags',
+        'href' => route('warehouseman.categories.index'),
+        'active' => request()->routeIs('warehouseman.categories.*'),
+        
     ],
 
     [
-        'name' => 'Usuarios',
-        'icon' => 'fa-solid fa-users',
-        'href' => route('admin.users.index'),
-        'active' => request()->routeIs('admin.users.*'),
+        'name' => 'Productos',
+        'icon' => 'fa-solid fa-box-open',
+        'href' => route('warehouseman.products.index'),
+        'active' => request()->routeIs('warehouseman.products.*'),
         
     ],
 

@@ -5,20 +5,23 @@ $links = [
     [
         'name' => 'Dashboard',
         'icon' => 'fa-solid fa-gauge',
-        'href' => route('admin.dashboard'),
-        'active' => request()->routeIs('admin.dashboard'),
+        'href' => route('seller.dashboard'),
+        'active' => request()->routeIs('seller.dashboard'),
     ],
     [
-        'header' => 'Gestion',
+        'header' => 'Historial de Ventas',
     ],
 
     [
-        'name' => 'Usuarios',
-        'icon' => 'fa-solid fa-users',
-        'href' => route('admin.users.index'),
-        'active' => request()->routeIs('admin.users.*'),
+        'name' => 'Ventas',
+        'icon' => 'fa-solid fa-file-invoice-dollar',
+        'href' => "#",
+        //'active' => request()->routeIs('seller.sales.*'),
+         'active' => false
         
-    ],
+   ],
+
+
 
 ];
 

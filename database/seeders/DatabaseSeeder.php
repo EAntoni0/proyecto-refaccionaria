@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
 
         //para el usuario almacenista
         User::factory()->create([
-            'name' => 'Alamcenista Erick',
+            'name' => 'Almacenista Erick',
             'email' => 'almacenista1@gmail.com',
             'password' => bcrypt('password'),
             'role' => 'almacenista',

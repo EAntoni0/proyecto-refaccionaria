@@ -1,13 +1,10 @@
 
-<x-admin-layout :breadcrumbs="[
-    [
-        'name' => 'Dashboard', 
-        'href' => route('admin.dashboard'),
-    ],
+<x-warehouseman-layout :breadcrumbs="[
+
 
     [
-        'name' => 'Profile', 
-        'href' => route('admin.dashboard'),
+        'name' => 'Dashboard', 
+        'href' => route('warehouseman.dashboard'),
     ],
 
     
@@ -15,7 +12,12 @@
 
 
 
-    Hola Mundo desde el dashboard admin
+    
 
-</x-admin-layout>
+ssssssssssssssssssssssssss
+
+
+
+
+</x-warehouseman-layout>
 

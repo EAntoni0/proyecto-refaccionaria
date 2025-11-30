@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\warehouseman;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
@@ -12,7 +13,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        return "Hola desde CategoryController index";
+        return view('warehouseman.categories.index');
     }
 
     /**

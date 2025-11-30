@@ -26,19 +26,19 @@
     </head>
     <body class="font-sans antialiased bg-gray-50">
 
-      @include('layouts.includes.admin.navigation')
-      @include('layouts.includes.admin.sidebar')
+     @include('layouts.navigation') @include('layouts.includes.admin.sidebar') 
 
-<div class="p-4 sm:ml-64">
-<!--Añadir margen superior -->
-   <div class="mt-14 flex items-center justify-between w-full">
-      @include('layouts.includes.admin.breadcrumb')
-      {{ $action ?? '' }}
-   </div>
+    <div class="p-4 sm:ml-64">
+       
+        <div class="mt-14 flex items-center justify-between w-full mb-4">
+             @include('layouts.breadcrumb', ['breadcrumbs' => $breadcrumbs ?? []])
+            
+            {{ $action ?? '' }}
+        </div>
 
-   {{ $slot }}
+        {{ $slot }}
 
-</div>
+    </div>
 
 
         @stack('modals')
@@ -66,8 +66,8 @@
                     //evita que se envie
                     e.preventDefault();
                     Swal.fire({
-                        title: "Are you sure?",
-                        text: "No podras revertir los cambios!",
+                        title: "¿Estás seguro de eliminar este registro?",
+                        text: "No podrás revertir los cambios!",
                         //icon: "warning",
                         showCancelButton: true,
                         confirmButtonColor: "#3085d6",

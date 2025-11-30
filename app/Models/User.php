@@ -64,4 +64,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    //para saber las ventas que ha realizado un usuario
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
+    }
 }

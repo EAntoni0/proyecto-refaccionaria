@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         //para el usuario admin
-        User::factory()->create([
+        User::create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('password'),
@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         //para el usuario almacenista
-        User::factory()->create([
+        User::create([
             'name' => 'Almacenista Erick',
             'email' => 'almacenista1@gmail.com',
             'password' => bcrypt('password'),
@@ -37,14 +37,13 @@ class DatabaseSeeder extends Seeder
 
 
         //para el usuario vendedor
-        User::factory()->create([
+        User::create([
             'name' => 'Vendedor Antonio',
             'email' => 'vendedor1@gmail.com',
             'password' => bcrypt('password'),
             'role' => 'vendedor',
         ]); 
 
-        //con esta linea se crean 5 categorias ademas de 10 productos
-        Category::factory(5)->hasProducts(10)->create();
+
     }
 }

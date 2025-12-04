@@ -9,7 +9,7 @@ $links = [
         'active' => request()->routeIs('admin.dashboard'),
     ],
     [
-        'header' => 'Gestion',
+        'header' => 'Sistema',
     ],
 
     [
@@ -19,6 +19,34 @@ $links = [
         'active' => request()->routeIs('admin.users.*'),
         
     ],
+
+    [
+        'header' => 'Gestion',
+    ],
+
+    [
+        'name' => 'Ventas',
+        'icon' => 'fa-solid fa-chart-line',
+        'href' => route("admin.sales.index"),
+        'active' => request()->routeIs('admin.sales.*'),
+
+],
+   [
+        'name' => 'Categorías',
+        'icon' => 'fa-solid fa-tags', 
+        'href' => route('admin.categories.index'),
+        'active' => request()->routeIs('admin.categories.*'), 
+    ],
+
+    [
+    'name' => 'Productos',
+    'icon' => 'fa-solid fa-box-open',
+    'href' => route('admin.products.index'),
+    'active' => request()->routeIs('admin.products.*'),
+],
+
+
+
 
 ];
 

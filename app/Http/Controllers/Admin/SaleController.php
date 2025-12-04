@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Seller;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
@@ -8,6 +8,6 @@ class SaleController extends Controller
 {
     public function index()
     {
-        return view('seller.sales.index');
+        return view('admin.sales.index');
     }
 }

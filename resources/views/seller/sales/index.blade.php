@@ -1,20 +1,15 @@
-<x-admin-layout :breadcrumbs="[
+<x-seller-layout :breadcrumbs="[
  [
         'name' => 'Dashboard',
         'href' => route('seller.dashboard')
     ],
 
     [
-        'name' => 'Roles',
+        'name' => 'Historial de ventas',
     ],
 ]">
 
-<x-slot name="action">
-    <x-wire-button blue href="{{ route('seller.sales.create') }}">
-        <i class="fa-solid fa-plus"></i>
-        Nuevo
-    </x-wire-button>
-</x-slot>
 
-@livewire('admin.datatables.role-table')
-</x-admin-layout>
+
+@livewire('seller.datatables.sales-table')
+</x-seller-layout>

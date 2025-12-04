@@ -54,35 +54,7 @@
     </script>
 @endif
 
-    {{--alerta para preguntar si esta seguro de editar o borrar las cosas--}}
-        <script>
-            //busca todos los elementos de una clase especifica
-            forms = document.querySelectorAll('.delete-form');
-            forms.forEach(form =>
-                {
-                    //activa el modo chismoso
-                    form.addEventListener('submit', function(e)
-                {
-                    //evita que se envie
-                    e.preventDefault();
-                    Swal.fire({
-                        title: "Are you sure?",
-                        text: "No podras revertir los cambios!",
-                        //icon: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#3085d6",
-                        cancelButtonColor: "#d33",
-                        confirmButtonText: "Eliminar",
-                        cancelButtonText: "Cancelar"
-                        }).then((result) => {
-                            if (result.isConfirmed){
-                                form.submit();
-                            }  
-                        });
-                })
-                }
-            )
-        </script>
+    @include('layouts.partials.scripts')
 
 
     </body>

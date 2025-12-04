@@ -15,9 +15,9 @@ $links = [
     [
         'name' => 'Ventas',
         'icon' => 'fa-solid fa-file-invoice-dollar',
-        'href' => "#",
-        //'active' => request()->routeIs('seller.sales.*'),
-         'active' => false
+        'href' => route("seller.sales.index"),
+        'active' => request()->routeIs('seller.sales.*'),
+
         
    ],
 

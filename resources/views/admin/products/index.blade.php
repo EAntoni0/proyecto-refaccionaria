@@ -5,16 +5,17 @@
     ],
 
     [
-        'name' => 'Roles',
+        'name' => 'Productos',
     ],
 ]">
 
 <x-slot name="action">
-    <x-wire-button blue href="{{ route('admin.roles.create') }}">
+    <x-wire-button blue href="{{ route('admin.products.create') }}">
         <i class="fa-solid fa-plus"></i>
-        Nuevo
+        Nuevo Producto
     </x-wire-button>
 </x-slot>
 
-@livewire('admin.datatables.role-table')
+@livewire('admin.datatables.products-table')
 </x-admin-layout>
+

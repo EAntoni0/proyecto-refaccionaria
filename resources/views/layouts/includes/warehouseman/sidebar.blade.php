@@ -12,20 +12,12 @@ $links = [
         'header' => 'Gestión de Almacén',
     ],
     [
-        'name' => 'Categorías',
-        'icon' => 'fa-solid fa-tags',
-        'href' => route('warehouseman.categories.index'),
-        'active' => request()->routeIs('warehouseman.categories.*'),
-        
+        'name' => 'Inventario', 
+        'icon' => 'fa-solid fa-boxes-stacked', 
+        'href' => route('warehouseman.inventory.index'), 
+        'active' => request()->routeIs('warehouseman.inventory.*'),
     ],
 
-    [
-        'name' => 'Productos',
-        'icon' => 'fa-solid fa-box-open',
-        'href' => route('warehouseman.products.index'),
-        'active' => request()->routeIs('warehouseman.products.*'),
-        
-    ],
 
 ];
 

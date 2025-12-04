@@ -16,9 +16,9 @@ class CheckRole
     public function handle(Request $request, Closure $next, string $role): Response
     {
         // verifica el el rol del usuario con la ruta que intenta acceder
-        if ($request->user()->role !== $role) {
-            abort(403, 'No cuentas con los permisos necesarios para acceder a esta sección.');
-        }
+        if ($request->user()->role !== $role && $request->user()->role !== 'admin') {
+        abort(403, 'Prohibido el acceso a esta pagina');
+    }
         return $next($request);
     }
 }

@@ -23,7 +23,7 @@
 
         @livewireStyles
     </head>
-    <body class="font-sans antialiased bg-gray-50" style="background-color: cadetblue">
+    <body class="font-sans antialiased bg-gray-50"">
 
         @include('layouts.navigation')
         

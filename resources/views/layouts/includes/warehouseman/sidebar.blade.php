@@ -3,8 +3,8 @@
 $links = [
 
     [
-        'name' => 'Dashboard',
-        'icon' => 'fa-solid fa-gauge',
+        'name' => 'Almacen',
+        'icon' => 'fa-solid fa-warehouse',
         'href' => route('warehouseman.dashboard'),
         'active' => request()->routeIs('warehouseman.dashboard'),
     ],

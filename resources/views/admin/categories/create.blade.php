@@ -1,4 +1,16 @@
-<x-admin-layout>
+<x-admin-layout :breadcrumbs="[
+ [
+        'name' => 'Dashboard',
+        'href' => route('admin.dashboard')
+    ],
+
+    [
+        'name' => 'Categorias',
+    ],
+    [
+        'name' => 'Nueva Categoria',
+    ],
+]">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">Crear Categoría</h2>
     </x-slot>

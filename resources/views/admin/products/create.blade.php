@@ -9,7 +9,7 @@
         'href' => route('admin.products.index')
     ],
     [
-        'name' => 'Nuevo',
+        'name' => 'Nuevo Producto',
     ],
 ]">
 
@@ -17,7 +17,7 @@
         
         <div class="mb-6 border-b border-gray-200 pb-4">
             <h2 class="text-xl font-bold text-gray-900">Registrar Nuevo Producto</h2>
-            <p class="text-sm text-gray-500 mt-1">Completa el formulario para añadir un nuevo ítem al inventario.</p>
+            <p class="text-sm text-gray-500 mt-1">Rellena todos los campos:</p>
         </div>
 
         <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
@@ -31,7 +31,7 @@
                        name="name" 
                        value="{{ old('name') }}"
                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
-                       placeholder="Ej: Bujías de Iridio NGK" required>
+                       placeholder="Ej: LLanta" required>
                 @error('name') <p class="mt-2 text-sm text-red-600">{{ $message }}</p> @enderror
             </div>
 
@@ -90,8 +90,7 @@
                     <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-48 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
                         <div class="flex flex-col items-center justify-center pt-5 pb-6">
                             <i class="fa-solid fa-cloud-arrow-up text-3xl text-gray-400 mb-3"></i>
-                            <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Haz clic para subir</span> o arrastra la imagen</p>
-                            <p class="text-xs text-gray-500">PNG, JPG o GIF (MAX. 2MB)</p>
+                            <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Haz clic para subir la imagen</span></p>
                             {{-- Texto dinámico para mostrar nombre del archivo --}}
                             <p id="file-name" class="mt-2 text-sm text-blue-600 font-semibold"></p>
                         </div>

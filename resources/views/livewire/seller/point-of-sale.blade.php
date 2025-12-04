@@ -11,7 +11,7 @@
                 <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition cursor-pointer border border-gray-100"
                      wire:click="addToCart({{ $product->id }})">
                     
-                    {{-- CORRECCIÓN AQUÍ: Lógica para mostrar imagen o ícono --}}
+                 
                     <div class="h-32 w-full flex items-center justify-center bg-gray-50 rounded mb-2 overflow-hidden">
                         @if($product->image_path)
                             <img src="{{ asset('storage/' . $product->image_path) }}" 
@@ -46,7 +46,7 @@
     <div class="md:col-span-1">
         <div class="bg-white rounded-lg shadow-lg p-4 sticky top-20">
             <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
-                <i class="fa-solid fa-shopping-cart text-blue-600"></i> Ticket de Venta
+                <i class="fa-solid fa-shopping-cart text-blue-600"></i> Ticket
             </h2>
 
             <div class="space-y-3 mb-6 max-h-96 overflow-y-auto">

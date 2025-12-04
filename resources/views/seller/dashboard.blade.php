@@ -3,28 +3,28 @@
     
 
     [
-        'name' => 'Dashboard', 
+        'name' => 'Punto de Venta', 
         'href' => route('seller.dashboard'),
     ],
 
     
 ]">
 
-<div class="py-6">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+<div class="relative bg-gradient-to-r from-green-500 to-emerald-700 rounded-xl shadow-lg p-6 mb-8 overflow-hidden">
+        <div class="relative z-10 text-white">
+            <h1 class="text-3xl font-bold">¡Bienvenido, {{ Auth::user()->name }}!</h1>
+            <p class="mt-2 opacity-90 text-lg">Da click sobre un producto para agregarlo al carrito</p>
             
-            <div class="mb-6">
-                <h1 class="text-2xl font-bold text-gray-800">Nueva Venta</h1>
-                <p class="text-gray-500">Selecciona productos para agregar al ticket.</p>
-            </div>
-
-            <livewire:seller.point-of-sale />
-
+            {{-- Como el POS está en el mismo dashboard, quizás un botón scroll o nada --}}
         </div>
+        {{-- Icono decorativo --}}
+        <i class="fa-solid fa-cash-register absolute -right-6 -bottom-8 text-9xl text-white opacity-20 transform rotate-12"></i>
+        
+
     </div>
 
-
-
+    <livewire:seller.point-of-sale />
 
 </x-seller-layout>
 

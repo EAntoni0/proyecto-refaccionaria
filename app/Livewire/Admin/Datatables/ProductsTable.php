@@ -65,7 +65,7 @@ class ProductsTable extends DataTableComponent
                 ->sortable()
                 ->format(function($value) {
                     if($value == 0) return '<span class="text-red-500 font-bold">Agotado</span>';
-                    return $value . ' un.';
+                    return $value . ' <span class="text-green-500 font-bold"> Unidades</span>';
                 })
                 ->html(),
 

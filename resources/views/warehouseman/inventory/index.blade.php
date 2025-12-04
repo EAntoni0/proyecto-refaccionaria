@@ -1,6 +1,6 @@
 <x-warehouseman-layout :breadcrumbs="[
  [
-        'name' => 'Dashboard',
+        'name' => 'Almacen',
         'href' => route('warehouseman.dashboard')
     ],
 

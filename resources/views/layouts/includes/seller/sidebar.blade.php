@@ -3,8 +3,8 @@
 $links = [
 
     [
-        'name' => 'Dashboard',
-        'icon' => 'fa-solid fa-gauge',
+        'name' => 'Punto de venta',
+        'icon' => 'fa-solid fa-cash-register',
         'href' => route('seller.dashboard'),
         'active' => request()->routeIs('seller.dashboard'),
     ],
@@ -14,7 +14,7 @@ $links = [
 
     [
         'name' => 'Ventas',
-        'icon' => 'fa-solid fa-file-invoice-dollar',
+        'icon' => 'fa-solid fa-chart-line',
         'href' => route("seller.sales.index"),
         'active' => request()->routeIs('seller.sales.*'),
 

@@ -28,10 +28,8 @@ class InventoryTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            // 1. SKU
-            Column::make("SKU", "sku")
-                ->sortable()
-                ->searchable(),
+
+            Column::make("ID", "id")->sortable(),
 
             // 2. NOMBRE DEL PRODUCTO
             Column::make("Producto", "name")
@@ -62,29 +60,26 @@ class InventoryTable extends DataTableComponent
             // 5. ACCIONES (Formulario de Entrada)
             // Usamos 'label' porque no viene de la BD directamente
             Column::make("Registrar Entrada")
-                ->label(function($row) {
-                    // Generamos la URL para la ruta que creamos antes
-                    $url = route('warehouseman.inventory.add', $row->id);
-                    $csrf = csrf_token(); // Necesitamos el token manual
-                    
-                    // Retornamos el formulario en HTML puro
-                    return '
-                        <form action="'.$url.'" method="POST" class="flex items-center space-x-2">
-                            <input type="hidden" name="_token" value="'.$csrf.'">
-                            
-                            <input type="number" name="quantity" min="1" placeholder="Cant." 
-                                   class="w-20 py-1 px-2 rounded border border-gray-300 text-sm focus:ring-blue-500 focus:border-blue-500" required>
-                            
-                            <input type="text" name="notes" placeholder="Nota..." 
-                                   class="w-28 py-1 px-2 rounded border border-gray-300 text-sm focus:ring-blue-500 focus:border-blue-500">
-                            
-                            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded text-xs transition duration-150">
-                                <i class="fa-solid fa-plus"></i>
-                            </button>
-                        </form>
-                    ';
-                })
-                ->html(),
+    ->label(function($row) {
+        $url = route('warehouseman.inventory.add', ['product' => $row->id]);
+        $csrf = csrf_token();
+        
+        return '
+            <form action="'.$url.'" method="POST" class="flex items-center space-x-2">
+                <input type="hidden" name="_token" value="'.$csrf.'">
+                
+
+                <input type="number" name="quantity" min="1" placeholder="Cant." 
+                       class="w-24 py-1 px-2 rounded border border-gray-300 text-sm focus:ring-blue-500 focus:border-blue-500" required>
+                
+                
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded text-xs transition duration-150">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </form>
+        ';
+    })
+    ->html(),
         ];
     }
 }

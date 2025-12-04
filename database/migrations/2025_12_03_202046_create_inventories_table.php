@@ -21,7 +21,7 @@ return new class extends Migration
         // Tipo: 'entrada' (compra a proveedor), 'salida' (merma/ajuste), 'correccion'
         $table->enum('type', ['entrada', 'salida', 'ajuste']); 
         $table->integer('quantity'); // Cuántos entraron o salieron
-        $table->text('notes')->nullable(); // Ej: "Llegó pedido del proveedor X"
+
         
         $table->timestamps();
     });

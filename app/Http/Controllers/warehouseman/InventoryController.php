@@ -13,36 +13,36 @@ class InventoryController extends Controller
 {
     public function index()
     {
-        $products = Product::select('id', 'name', 'stock', 'sku')->paginate(10);
-        return view('warehouseman.inventory.index', compact('products'));
+        return view('warehouseman.inventory.index');
     }
 
     // metodo para añadir nuevo stock
+    // ... método index arriba ...
+
     public function addStock(Request $request, $productId)
-    {
-        $request->validate([
-            'quantity' => 'required|integer|min:1',
-            'notes' => 'nullable|string|max:255',
+{
+    // 1. Quitamos la validación de 'notes'
+    $request->validate([
+        'quantity' => 'required|integer|min:1',
+    ]);
+
+    $product = Product::findOrFail($productId);
+
+    \Illuminate\Support\Facades\DB::transaction(function () use ($request, $product) {
+        
+        // 2. Quitamos 'notes' del create
+        \App\Models\InventoryMovement::create([
+            'product_id' => $product->id,
+            'user_id' => auth()->id(),
+            'type' => 'entrada',
+            'quantity' => $request->quantity,
+            // 'notes' => $request->notes,  <-- BORRADO
         ]);
 
-        $product = Product::findOrFail($productId);
+        $product->increment('stock', $request->quantity);
+    });
 
-        // Usamos una transacción para asegurar que todo se guarde o nada
-        DB::transaction(function () use ($request, $product) {
-            
-            // 1. Crear el registro en el historial (Kardex)
-            InventoryMovement::create([
-                'product_id' => $product->id,
-                'user_id' => Auth::id(), // El Almacenista logueado
-                'type' => 'entrada',
-                'quantity' => $request->quantity,
-                'notes' => $request->notes,
-            ]);
-
-            // 2. Actualizar el stock total del producto
-            $product->increment('stock', $request->quantity);
-        });
-
-        return redirect()->back()->with('success', 'Stock agregado correctamente.');
-    }
+    return redirect()->route('warehouseman.inventory.index')
+        ->with('success', 'Stock agregado correctamente.');
+}
 }

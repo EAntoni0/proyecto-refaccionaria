@@ -32,31 +32,24 @@ class ProductsTable extends DataTableComponent
         return [
             Column::make("ID", "id")->sortable(),
 
-            // --- AQUÍ ESTÁ LA MAGIA DE LA FOTO ---
-            Column::make("Imagen", "image_path") 
-                ->label(function($row) {
-                    
-                    // DEPURACIÓN (Borrar después):
-                    // Si esto imprime NULL en pantalla, la tabla no está seleccionando el campo.
-                    // if (!$row->image_path) dump('El campo está vacío');
-
-                    if ($row->image_path) {
-                        $url = asset('storage/' . $row->image_path);
-                        return '<img src="'.$url.'" alt="img" class="w-10 h-10 rounded-full object-cover">';
-                    }
-                    
-                    return '<span class="text-xs text-gray-400">Sin foto</span>';
-                })
-                ->html(),
-
             Column::make("Nombre", "name")
                 ->searchable()
                 ->sortable()
                 ->format(function($value, $row) {
                     return '<div>
                                 <div class="font-bold">'.$value.'</div>
-                                <div class="text-xs text-gray-500">Slug: '.$row->slug.'</div>
                             </div>';
+                })
+                ->html(),
+
+            Column::make("Descripción", "description")
+                ->searchable()
+                ->format(function($value) {
+                    // Usamos Str::limit para que si es muy largo no rompa la tabla (máx 50 caracteres)
+                    // Y ponemos un 'title' para que al pasar el mouse se vea completo.
+                    return '<span title="'.$value.'" class="text-sm text-gray-600">' 
+                            . \Illuminate\Support\Str::limit($value, 50) . 
+                           '</span>';
                 })
                 ->html(),
 

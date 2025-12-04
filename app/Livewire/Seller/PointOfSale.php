@@ -7,13 +7,13 @@ use App\Models\Product;
 use App\Models\Sale;
 use App\Models\SaleDetail;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB; // Para transacciones
+use Illuminate\Support\Facades\DB;
 
 class PointOfSale extends Component
 {
-    public $search = ''; // Buscador
-    public $cart = [];   // Carrito de compras
-    public $total = 0;   // Total a pagar
+    public $search = ''; 
+    public $cart = []; 
+    public $total = 0; 
 
     // Escuchar el evento de búsqueda
     public function render()
@@ -35,7 +35,7 @@ class PointOfSale extends Component
         $product = Product::find($productId);
 
         if (!$product || $product->stock <= 0) {
-            $this->alertError('Producto sin stock o no encontrado');
+            $this->alertError('prodcuto sin existencias');
             return;
         }
 
@@ -114,8 +114,8 @@ class PointOfSale extends Component
         // Disparar alerta de éxito
         session()->flash('swal', [
             'icon' => 'success',
-            'title' => '¡Venta Exitosa!',
-            'text' => 'El inventario ha sido actualizado.'
+            'title' => 'Venta exitosa',
+            'text' => 'Se actualizo el inventario'
         ]);
         
         return redirect()->route('seller.dashboard');

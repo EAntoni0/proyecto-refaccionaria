@@ -30,7 +30,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
-    // --- LA ROTONDA (Dashboard Genérico) ---
+
     Route::get('/dashboard', function () {
         $user = Auth::user();
         if ($user->role === 'admin') {
@@ -44,8 +44,7 @@ Route::middleware([
     })->name('dashboard');
 
 
-    // --- ZONA ADMIN ---
-    // Prefijo URL: /admin | Prefijo Nombre: admin.
+    // rutas del admin
     Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(function () {
         
         Route::get('/dashboard', function () {
@@ -63,8 +62,7 @@ Route::middleware([
     });
 
 
-    // --- ZONA ALMACENISTA ---
-    // Prefijo URL: /warehouseman | Prefijo Nombre: warehouseman.
+    // rutas del almacenista
     Route::middleware(['role:almacenista'])->prefix('warehouseman')->name('warehouseman.')->group(function () {
         
         Route::get('/dashboard', function () {
@@ -79,9 +77,7 @@ Route::middleware([
     });
 
 
-    // --- ZONA VENDEDOR ---
-    // Prefijo URL: /seller | Prefijo Nombre: seller.
-    // Agregué el ->name('seller.') al grupo para ser consistentes
+    // rutas del vendedor
     Route::middleware(['role:vendedor'])->prefix('seller')->name('seller.')->group(function () {
 
         Route::redirect('/', 'seller/dashboard');
@@ -90,10 +86,9 @@ Route::middleware([
             return view('seller.dashboard'); 
         })->name('dashboard'); // Resultado: seller.dashboard
         
-        // CORRECCIÓN AQUÍ:
-        // Usamos el Alias SellerSaleController
+
         Route::get('/sales', [SellerSaleController::class, 'index'])->name('sales.index');
-        // Resultado final del nombre: seller.sales.index
+
     });
 
 });

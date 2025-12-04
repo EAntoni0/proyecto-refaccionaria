@@ -17,6 +17,14 @@
         });
     @endif
 
+    document.addEventListener('livewire:initialized', () => {
+        
+        Livewire.on('swal', (data) => {
+            Swal.fire(data[0]);
+        });
+
+    });
+
     // Si Laravel envía un mensaje de 'error'
     @if (session('error'))
         Swal.fire({

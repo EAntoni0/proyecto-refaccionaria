@@ -41,11 +41,11 @@ class InventoryTable extends DataTableComponent
                 ->sortable()
                 ->format(function($value) {
                     if ($value <= 5) {
-                        // Rojo si es crítico (5 o menos)
-                        return '<span class="px-2 py-1 text-xs font-bold text-red-700 bg-red-100 rounded-full">'.$value.' Crítico</span>';
+
+                        return '<span class="px-2 py-1 text-xs font-bold text-red-700 bg-red-100 rounded-full">'.$value.' Unidades</span>';
                     } elseif ($value <= 15) {
-                        // Amarillo si es bajo
-                        return '<span class="px-2 py-1 text-xs font-bold text-yellow-700 bg-yellow-100 rounded-full">'.$value.' Bajo</span>';
+
+                        return '<span class="px-2 py-1 text-xs font-bold text-yellow-700 bg-yellow-100 rounded-full">'.$value.' Unidades</span>';
                     }
                     // Verde si está bien
                     return '<span class="px-2 py-1 text-xs font-bold text-green-700 bg-green-100 rounded-full">'.$value.' Unidades</span>';

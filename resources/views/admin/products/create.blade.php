@@ -23,7 +23,7 @@
         <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            {{-- 1. NOMBRE DEL PRODUCTO --}}
+           
             <div class="mb-6">
                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Nombre del Producto</label>
                 <input type="text" 

@@ -23,7 +23,7 @@ class PointOfSale extends Component
             ->when($this->search, function($query) {
                 $query->where('name', 'like', '%' . $this->search . '%');
             })
-            ->take(10) // Solo mostramos 10 para no saturar
+            ->take(10) // mostramos 10 unicamente
             ->get();
 
         return view('livewire.seller.point-of-sale', compact('products'));

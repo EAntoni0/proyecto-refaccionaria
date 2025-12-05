@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    {{-- COLUMNA DERECHA (CARRITO) --}}
+    {{-- CARRO DE COMPRAS --}}
     <div class="md:col-span-1">
         <div class="bg-white rounded-lg shadow-lg p-4 sticky top-20">
             <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
@@ -80,7 +80,7 @@
                     <span class="text-green-600">${{ number_format($total, 2) }}</span>
                 </div>
 
-                {{-- Usamos botón HTML estándar por si WireUI falla --}}
+            
                 <button wire:click="saveSale" 
                         @if(empty($cart)) disabled @endif
                         class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg shadow transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">

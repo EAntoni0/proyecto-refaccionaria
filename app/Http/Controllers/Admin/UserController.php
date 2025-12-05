@@ -138,25 +138,18 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        // Protección: No eliminar al ID 1
-        if($user->id == 1){
-            session()->flash('swal', [
-                'icon'=>'error',
-                'title'=>'ERROR',
-                'text'=>'No puedes eliminar al Super Administrador'
-            ]);
-            return redirect()->route('admin.users.index');
+        // 1. Protección: No eliminar al Super Admin (ID 1)
+        if ($user->id == 1) {
+            // USAMOS ->with('error', ...) DIRECTO
+            // Esto activará automáticamente la alerta roja de SweetAlert que ya configuramos
+            return redirect()->route('admin.users.index')
+                ->with('error', '¡No puedes eliminar al Súper Administrador!');
         }
 
-        // Borrar usuario
+        // 2. Eliminación normal
         $user->delete();
 
-        session()->flash('swal', [
-            'icon'=>'success',
-            'title'=>'Usuario eliminado correctamente',
-            'text'=>'El registro ha sido borrado del sistema'
-        ]); 
-
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')
+            ->with('success', 'Usuario eliminado correctamente.');
     }
 }

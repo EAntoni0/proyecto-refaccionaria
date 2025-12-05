@@ -50,12 +50,10 @@ class UserTable extends DataTableComponent
     })
     ->html(),
             Column::make("Acciones")
-                ->label(
-                    function($row){
-
-                        return view('admin.users.actions', ['user' => $row]);
-                    }
-                ),
+    ->label(
+        fn($row) => view('admin.users.actions', ['user' => $row])->render() 
+    )
+    ->html(),
         ];
     }
 }

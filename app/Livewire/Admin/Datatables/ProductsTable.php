@@ -12,7 +12,6 @@ class ProductsTable extends DataTableComponent
     public function configure(): void
     {
         $this->setPrimaryKey('id');
-        // Alineación vertical centrada para que la imagen se vea bien
         $this->setTdAttributes(function(Column $column, $row, $columnIndex, $rowIndex) {
             return ['class' => 'align-middle'];
         });
@@ -21,7 +20,6 @@ class ProductsTable extends DataTableComponent
     public function builder(): Builder
     {
         // 1. Cargamos la categoría
-        // 2. CORRECCIÓN IMPORTANTE: Ordenamos por 'products.created_at' para evitar error de ambigüedad
         return Product::query()
             ->with('category')
             ->orderBy('products.created_at', 'desc');

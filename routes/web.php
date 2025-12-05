@@ -14,11 +14,7 @@ use App\Http\Controllers\Warehouseman\InventoryController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-*/
+
 
 Route::get('/', function () {
     return redirect()->route('login');

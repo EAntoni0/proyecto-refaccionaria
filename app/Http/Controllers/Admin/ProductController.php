@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
-use App\Models\Category; // Necesitamos esto para el Select
+use App\Models\Category; 
 use Illuminate\Http\Request;
-use Illuminate\Support\Str; // Para generar el slug
-use Illuminate\Support\Facades\Storage; // Para manejar imágenes
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -30,11 +30,12 @@ class ProductController extends Controller
             'category_id' => 'required|exists:categories,id',
             'name' => 'required|unique:products',
             'price' => 'required|numeric',
-            'image' => 'nullable|image|max:2048', // Máximo 2MB
+            'image' => 'nullable|image|max:2048',
         ]);
 
         // 2. Preparamos los datos
         $data = $request->all();
+        //slug para tener un nombre mas accesible para url, sin espacios, caracteres, todo en minuscula
         $data['slug'] = Str::slug($request->name);
 
         // 3. Manejo de la Imagen
@@ -93,10 +94,10 @@ class ProductController extends Controller
     }
 
 
-    //ELIMINAR PRODUCTO (La que te dio el error)
+    //ELIMINAR PRODUCTO 
     public function destroy(Product $product)
     {
-        // Es buena práctica borrar la imagen del servidor para no acumular basura
+        //eliminar imagen del servidor
         if ($product->image_path) {
             \Illuminate\Support\Facades\Storage::disk('public')->delete($product->image_path);
         }

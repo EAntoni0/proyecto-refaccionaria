@@ -1,7 +1,7 @@
 <div class="flex items-center space-x-2">
     
     {{-- EDITAR --}}
-    {{-- Aún no hemos creado la ruta edit, pero la dejamos lista --}}
+
     <x-wire-button href="{{ route('admin.products.edit', $product) }}" blue xs>
         <i class="fa-solid fa-pen-to-square"></i>
     </x-wire-button>

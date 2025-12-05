@@ -14,11 +14,6 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-        {{-- 
-             NOTA: Quitamos la línea de <script src="...sweetalert2..."></script> 
-             porque ahora se carga dentro del @include del final.
-        --}}
-
         <wireui:scripts />
 
         @livewireStyles

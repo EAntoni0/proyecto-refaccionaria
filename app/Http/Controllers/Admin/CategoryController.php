@@ -1,5 +1,8 @@
 <?php
 
+//controlador para las acciones del administrador sobre las categorias
+
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -8,24 +11,23 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    // 1. LISTAR (Usando DataTable)
+    //listar las categorias
     public function index()
     {
         return view('admin.categories.index');
     }
 
-    // 2. MOSTRAR FORMULARIO DE CREAR
+    //funcion para abrir la vista de de nueva categoria
     public function create()
     {
         return view('admin.categories.create');
     }
 
-    // 3. GUARDAR EN BD
+    //funcion que guarda en la DB todo lo del formulario de la  vista de categories.create
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|unique:categories,name|max:255',
-            // Agrega 'description' si tu tabla lo tiene
         ]);
 
         Category::create($request->all());
@@ -34,13 +36,13 @@ class CategoryController extends Controller
             ->with('success', 'Categoría creada con éxito.');
     }
 
-    // 4. MOSTRAR FORMULARIO DE EDICIÓN
+    //para manejar la ventanna de edicion de una categoria
     public function edit(Category $category)
     {
         return view('admin.categories.edit', compact('category'));
     }
 
-    // 5. ACTUALIZAR EN BD
+    // funcion para actualizar 
     public function update(Request $request, Category $category)
     {
         $request->validate([

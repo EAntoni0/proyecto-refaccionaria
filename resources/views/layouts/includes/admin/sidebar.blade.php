@@ -46,6 +46,13 @@ $links = [
 ],
 
 
+[
+    'name' => 'Facturas',
+    'icon' => 'fa-solid fa-file-invoice',
+    'href' => "#",
+    'active' => false
+],
+
 
 
 ];

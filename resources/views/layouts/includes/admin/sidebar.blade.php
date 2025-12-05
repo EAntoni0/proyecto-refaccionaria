@@ -39,6 +39,7 @@ $links = [
     ],
 
     [
+    
     'name' => 'Productos',
     'icon' => 'fa-solid fa-box-open',
     'href' => route('admin.products.index'),

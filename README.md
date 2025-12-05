@@ -21,7 +21,7 @@ The system includes **Role-Based Access Control (RBAC)** with three defined prof
 - **Stock Alerts:** Visual indicators for critical or low stock
 
 
-  
+ ![admin](/public/images/admin.png")
 
 ---
 
@@ -29,9 +29,12 @@ The system includes **Role-Based Access Control (RBAC)** with three defined prof
 
 - **Entry Management:** Registration of incoming merchandise  
 - **Movement Log (Kardex):** Complete history of inventory movements  
-- **Quick Search:** Product filtering by name for fast adjustments  
+- **Quick Search:** Product filtering by name for fast adjustments
+
+![admin](/public/images/almacenista.png")
 
 ---
+
 
 ### 🛒 Seller (Point of Sale)
 
@@ -39,6 +42,8 @@ The system includes **Role-Based Access Control (RBAC)** with three defined prof
 - **Shopping Cart:** Dynamic product addition with auto-total calculation  
 - **Stock Validation:** Real-time prevention of out-of-stock sales  
 - **Visual Alerts:** Status notifications for each transaction  
+
+![admin](/public/images/saller.png")
 
 ---
 
